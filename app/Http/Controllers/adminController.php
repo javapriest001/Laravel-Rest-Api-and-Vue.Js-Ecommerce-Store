@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\product;
 
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 class adminController extends Controller
@@ -38,7 +39,7 @@ class adminController extends Controller
 
     public function login(Request $request ){
 
-        
+
         $user = User::where('email' , $request->email)->first();
 
         if (!$user) {
@@ -51,6 +52,7 @@ class adminController extends Controller
             return response()->json(['message'=>'User Details' , $user]);
         }
         return response()->json(['message'=>'Incorrect Details']);
+        //return Response()->json(['message' => 'Incorrect Details']);
     }
 
     //Get Products
@@ -65,7 +67,7 @@ class adminController extends Controller
 
     //Activate Product
     public function activateProduct(Request $request){
-        
+
         //$prod = product::findOrFail();
        $product = product::find($request->productId);
         if ($product) {
@@ -79,7 +81,7 @@ class adminController extends Controller
 
     }
     public function deActivateProduct(Request $request){
-        
+
         //$prod = product::findOrFail();
        $product = product::find($request->productId);
         if ($product) {

@@ -15,6 +15,8 @@ use App\Http\Controllers\userController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+// TODO: Add new route
 Route::post('/login' , [adminController::class , 'login']);
 Route::post('/register' , [adminController::class , 'register']);
 Route::get('/products' , [adminController::class , 'getProducts']);

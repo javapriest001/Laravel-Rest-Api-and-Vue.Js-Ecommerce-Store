@@ -8,14 +8,17 @@ use App\Models\product;
 class userController extends Controller
 {
     //get Active Products
-    public function getActiveProducts(){
+    public function getActiveProducts(): \Illuminate\Http\JsonResponse
+    {
         $products = product::where('status' , 1)->get();
 
         if ($products) {
             return response()->json(['status'=> 'ok' , $products] , 200);
         }
-        return response()->json(['status'=> 'error fetching Records' ] , 401);
+        return response()->json(['status'=> 'error fetching Record' ] , 401);
     }
+
+
 
     public function deleteProduct($id){
 

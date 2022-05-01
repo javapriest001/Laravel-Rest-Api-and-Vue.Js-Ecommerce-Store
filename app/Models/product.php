@@ -22,4 +22,6 @@ class product extends Model
         'status',
         'category_id'
     ];
+
+
 }

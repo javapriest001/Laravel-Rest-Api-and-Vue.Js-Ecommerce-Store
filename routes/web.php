@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\testController;
+//use App\Http\Controllers\testController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +15,11 @@ use App\Http\Controllers\testController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 });
-Route::get('/fees', [testController::class , 'fees']);
+
+Route::get('/{any}' , function (){
+    return view('app');
+})->where('any' , '.*');
+
+//Route::get('/fees', [testController::class , 'fees']);
