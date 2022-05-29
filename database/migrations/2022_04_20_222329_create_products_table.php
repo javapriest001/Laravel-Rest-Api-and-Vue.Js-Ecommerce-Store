@@ -23,11 +23,13 @@ return new class extends Migration
             $table->string('product_img', 255)->nullable();
             $table->integer('status')->default(0)->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('user_id')->references('id')->on('users');
         });
-       
+
     }
 
     /**

@@ -20,7 +20,7 @@ class ProductFactory extends Factory
     {
        $name = $this->faker->text(20);
         $price = 100;
-       
+
         return [
             //
             'name' => $name,
@@ -31,8 +31,9 @@ class ProductFactory extends Factory
             'product_img' => $this->faker->imageUrl( $width = 640,
             $height = 480),
             'category_id' => 1,
+            'user_id' => 1,
         ];
 
-       
+
     }
 }

@@ -23,10 +23,12 @@ return new class extends Migration
             $table->float('sale_price', 5, 2);
             $table->string('product_img', 255);
             $table->string('category_id', 255);
+            $table->string('product_id', 255);
             $table->timestamps();
 
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

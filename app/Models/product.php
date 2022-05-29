@@ -20,7 +20,8 @@ class product extends Model
         'sale_price',
         'product_img',
         'status',
-        'category_id'
+        'category_id',
+        'user_id'
     ];
 
 
