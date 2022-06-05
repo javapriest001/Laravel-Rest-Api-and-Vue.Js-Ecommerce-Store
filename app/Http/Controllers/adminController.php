@@ -25,6 +25,7 @@ class adminController extends Controller
             'password' => 'required'
         ]);
 
+
         $register = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -38,6 +39,7 @@ class adminController extends Controller
     }
 
     //login New User
+    
 
     public function login(Request $request ){
 

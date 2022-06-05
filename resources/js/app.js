@@ -1,38 +1,29 @@
 
-
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('about' , require('./components/about.vue').default);
-// const about = () => import('./components/about.vue').then(m => m.default)
-
-
-
-require('./bootstrap.js');
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Vuetify from "vuetify";
-import vuetify from "../../src/plugins/vuetify";
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
-import axios  from 'axios'
 import exampleComponent from "./components/ExampleComponent";
 import about from "./components/about";
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-// Vue.component('about' , require('./components/about.vue'));
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('about' , require('./components/about.vue'));
 
-Vue.use(Vuetify);
-import 'vuetify/dist/vuetify.min.css';
-import routes from './routes';
+
 Vue.use(VueRouter);
-
 
 const router = new VueRouter({
     mode: "history",
-    routes,
+    routes: [
+        {
+            path: '/',
+            about
+        }
+
+    ]
 })
 
+require('./bootstrap');
 
-
-//window.Vue = require('vue').default;
+window.Vue = require('vue').default;
 
 /**
  * The following block of code may be used to automatically register your
@@ -53,8 +44,11 @@ const router = new VueRouter({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 const app = new Vue({
     el: '#app',
     router,
-    vuetify,
 });
+
+
+
