@@ -21,6 +21,7 @@ const router = new VueRouter({
     ]
 })
 
+
 require('./bootstrap');
 
 window.Vue = require('vue').default;
